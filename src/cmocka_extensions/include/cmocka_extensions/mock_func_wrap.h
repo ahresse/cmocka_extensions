@@ -11,11 +11,11 @@
 
 #define MOCK_FUNC_WRAP(__mockf) __wrap##_##__mockf
 #define MOCK_FUNC_REAL(__mockf) __real##_##__mockf
-#define MOCK_FUNC_PROTOTYPE(__fn, __fr, ...)                                   \
-  MOCK_FUNC_VAR_EXTERN(__fn);                                                  \
-  __fr MOCK_FUNC_WRAP(__fn)(__VA_ARGS__);                                      \
-  __fr MOCK_FUNC_REAL(__fn)(__VA_ARGS__);
+#define MOCK_FUNC_PROTOTYPE(__fn, __fr, ...) \
+    MOCK_FUNC_VAR_EXTERN(__fn);              \
+    __fr MOCK_FUNC_WRAP(__fn)(__VA_ARGS__);  \
+    __fr MOCK_FUNC_REAL(__fn)(__VA_ARGS__);
 
-#define MOCK_FUNC_BODY(__fn, __fr, ...)                                        \
-  MOCK_FUNC_VAR_NEW(__fn);                                                     \
-  __fr MOCK_FUNC_WRAP(__fn)(__VA_ARGS__)
+#define MOCK_FUNC_BODY(__fn, __fr, ...) \
+    MOCK_FUNC_VAR_NEW(__fn);            \
+    __fr MOCK_FUNC_WRAP(__fn)(__VA_ARGS__)
