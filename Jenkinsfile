@@ -27,13 +27,13 @@ properties([gitLabConnection('GitLab')])
 
 pipeline {
   options {
-    gitlabBuilds(builds: ["cmocka_extensions", "cmocka_extensions: build debug", "cmocka_extensions: build release", "cmocka_extensions: lint sources", "cmocka_extensions: documentation"])
+    gitlabBuilds(builds: ["cmocka-extensions", "build debug", "build release", "lint sources", "documentation"])
     buildDiscarder(logRotator(numToKeepStr: env.BRANCH_NAME == "master"? "1000": env.BRANCH_NAME == "integration"?"1000":"3"))
   }
 
   agent {
     dockerfile {
-        filename './cmocka_extensions/ci/Dockerfile'
+        filename './ci/Dockerfile'
         reuseNode true
         additionalBuildArgs "--build-arg USER=jenkins \
                         --build-arg UID=\$(id -u) --build-arg GID=\$(id -g) --build-arg ASMCOV_URI=${ASMCOV_URI}"
@@ -49,7 +49,7 @@ pipeline {
         sh 'env'
         sh 'gcc --version'
         sh 'cmake --version'
-        updateGitlabCommitStatus name: 'cmocka_extensions', state: 'running'
+        updateGitlabCommitStatus name: 'cmocka-extensions', state: 'running'
       }
     }
 
@@ -57,16 +57,16 @@ pipeline {
       steps {
         parallel(
           debug: {
-            gitlabCommitStatus("cmocka_extensions: build debug") {
+            gitlabCommitStatus("build debug") {
               sh '''#!/bin/bash -xe
-                ./cmocka_extensions/ci/build.sh --ci Debug
+                ./ci/build.sh --ci Debug
               '''
             }
           },
           release: {
-            gitlabCommitStatus("cmocka_extensions: build release") {
+            gitlabCommitStatus("build release") {
               sh '''#!/bin/bash -xe
-                ./cmocka_extensions/ci/build.sh --ci Release
+                ./ci/build.sh --ci Release
               '''
             }
           }
@@ -76,29 +76,29 @@ pipeline {
 
     stage('Lint sources') {
       steps{
-        gitlabCommitStatus("cmocka_extensions: lint sources") {
+        gitlabCommitStatus("lint sources") {
           sh '''#!/bin/bash -xe
-            ./cmocka_extensions/ci/code_lint.py --ci
-            ./cmocka_extensions/ci/checklicense.sh
+            ./ci/code_lint.py --ci
+            ./ci/checklicense.sh
           '''
         }
       }
       post {
         always {
-          archiveArtifacts artifacts: "cmocka_extensions/build/Release/result/lint_results/**", fingerprint: true
+          archiveArtifacts artifacts: "build/Release/result/lint_results/**", fingerprint: true
         }
       }
     }
 
     stage('Build documentation') {
       steps{
-        gitlabCommitStatus("cmocka_extensions: documentation") {
-          sh './cmocka_extensions/ci/build_doc.sh'
+        gitlabCommitStatus("documentation") {
+          sh './ci/build_doc.sh'
         }
       }
       post {
         success {
-          archiveArtifacts artifacts: "cmocka_extensions/build/Debug/doc/**, documentation/monitor.md", fingerprint: true
+          archiveArtifacts artifacts: "build/Debug/doc/**, documentation/monitor.md", fingerprint: true
         }
       }
     }
@@ -134,14 +134,14 @@ pipeline {
       }
     }
     success {
-        updateGitlabCommitStatus name: 'cmocka_extensions', state: 'success'
+        updateGitlabCommitStatus name: 'cmocka-extensions', state: 'success'
     }
     failure {
-        updateGitlabCommitStatus name: 'cmocka_extensions', state: 'failed'
+        updateGitlabCommitStatus name: 'cmocka-extensions', state: 'failed'
     }
     always {
       withCredentials([usernamePassword(credentialsId: 'kpi_creds', passwordVariable: 'KPI_API_TOKEN', usernameVariable: 'KPI_API_URL')]) {
-        sh './cmocka_extensions/ci/publish_kpis.sh'
+        sh './ci/publish_kpis.sh'
       }
       cleanWs(cleanWhenNotBuilt: false,
           deleteDirs: true,

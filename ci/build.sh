@@ -3,7 +3,6 @@ set -e -u
 
 CMD_PATH=$(realpath $(dirname $0))
 BASE_DIR=${CMD_PATH%/*}
-REPO_ROOT_DIR="$BASE_DIR/.."
 CMAKE_PARAM=${CMAKE_PARAM:-""}
 NINJA_PARAM=${NINJA_PARAM:-"-j$(nproc)"}
 
