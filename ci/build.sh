@@ -77,4 +77,9 @@ re=${PIPESTATUS[0]}
 
 $BASE_DIR/ci/check_build_log.py $RESULT_DIR/build_log.txt
 
+# add an empty compile_commands.json file to satisfy the code_lint script
+if [ ! -f $CMAKE_BUILD_DIR/compile_commands.json ]; then
+    echo [] > $CMAKE_BUILD_DIR/compile_commands.json
+fi
+
 exit $re
