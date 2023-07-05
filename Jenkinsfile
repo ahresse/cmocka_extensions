@@ -84,7 +84,7 @@ pipeline {
             src/cmocka_extensions/include/cmocka_extensions/mock_func_wrap.h \
             src/cmocka_extensions/include/cmocka_extensions/mock_func_weak.h \
             "
-            ./ci/code_lint.py --ci
+            ./ci/code_lint.py --ci --result-dir=build/Release/result/lint_results
             ./ci/checklicense.sh
           '''
         }
