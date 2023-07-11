@@ -7,7 +7,7 @@ A collection of mocking related code extensions needes by other components.
 cmocka_extensions uses CMake for building:
 
 ```bash
-cmake -B ./build ./cmocka_extensions
+cmake -B ./build .
 make -C ./build all
 make -C ./build install
 ```
@@ -15,7 +15,7 @@ make -C ./build install
 or use the CI hooks
 
 ```bash
-./cmocka_extensions/ci/build.sh [Release]
+./ci/build.sh [Release]
 ```
 
 ## Folders
