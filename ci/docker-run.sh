@@ -4,7 +4,7 @@
 #
 CMD_PATH=$(cd $(dirname $0) && pwd)
 BASE_DIR=${CMD_PATH%/*}
-PROJECT=${BASE_DIR##*/}
+PROJECT=cmocka-extensios
 IMAGE_NAME="${PROJECT}-build"
 
 if [ -f "${HOME}/.ssh/asmcov_token" ]; then
@@ -33,7 +33,7 @@ if [ "$SSH_AUTH_SOCK" ]; then
 fi
 
 docker run --rm -it $SSH_AGENT_OPTS \
-    -v $BASE_DIR/..:/base \
+    -v $BASE_DIR:/base \
     -w /base \
     --privileged \
     --device=/dev/kmsg \
