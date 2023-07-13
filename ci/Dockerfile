@@ -16,30 +16,18 @@ RUN apt-get update \
     curl \
     gdb \
     git \
-    gnuplot \
-    jq \
     libcmocka-dev \
     libcsv-dev \
-    libesmtp-dev \
     libiberty-dev \
-    libjson-c-dev \
-    libmnl-dev \
-    libsqlite3-0 \
-    libsqlite3-dev \
-    libssl-dev \
     linux-tools-generic \
     locales \
-    net-tools \
-    netcat \
     ninja-build \
-    openssl \
     pandoc \
     pandoc-plantuml-filter \
     pkg-config \
     python-is-python3 \
     python3-pip \
     python3-venv \
-    sqlite3 \
     sudo \
     wget \
     zlib1g-dev \
