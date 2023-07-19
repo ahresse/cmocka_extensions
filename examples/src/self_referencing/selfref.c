@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #include "selfref.h"
 #include <stdio.h>
 

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #ifndef _MOCK_EXAMPLE_SELFREF_H
 #define _MOCK_EXAMPLE_SELFREF_H
 

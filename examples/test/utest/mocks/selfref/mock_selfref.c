@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #include "mock_selfref.h"
 
 #include <stdlib.h>

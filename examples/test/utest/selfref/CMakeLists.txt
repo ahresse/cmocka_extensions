@@ -1,4 +1,4 @@
-
+# SPDX-License-Identifier: MIT
 create_unit_test(
   NAME
 		weak_selfref_example

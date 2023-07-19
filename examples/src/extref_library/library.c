@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #include "library.h"
 #include "dependency.h"
 #include <stdio.h>

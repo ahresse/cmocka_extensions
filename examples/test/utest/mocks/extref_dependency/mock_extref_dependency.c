@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #include "mock_extref_dependency.h"
 
 #include <stdlib.h>

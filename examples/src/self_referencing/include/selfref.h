@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #ifndef SELFREF_H
 #define SELFREF_H
 
