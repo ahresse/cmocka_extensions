@@ -40,6 +40,42 @@ or use the CI hooks
    ```
    ln -s build/Release/cmake/compile_commands.json
    ```
+## runing the examples
+
+the examples also get build with
+
+```bash
+./ci/build.sh [Release]
+```
+
+and can be run with
+
+```bash
+./ci/examples-run.sh
+```
+
+or found in
+
+```
+build/
+└── <Debug|Release>/
+   ├── ...
+   └── examples/
+      ├── ...
+      └── test/
+         ├── ...
+         ├── extref/
+         │  ├── ...
+         │  ├── wrap/
+         │  │  ├── ...
+         │  │  └── wrap_extref_example
+         │  └── weak/
+         │     ├── ...
+         │     └── weak_extref_example
+         └── selfref/
+            ├── ...
+            └── weak_selfref_example
+```
 
 ## Folders
 
