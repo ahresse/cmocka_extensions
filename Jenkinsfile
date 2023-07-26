@@ -79,7 +79,6 @@ pipeline {
         gitlabCommitStatus("lint sources") {
           sh '''#!/bin/bash -xe
             export UNUSED_SOURCES="\
-            src/cmocka_extensions/include/cmocka_extensions/mock_func_wrap.h \
             "
             ./ci/code_lint.py --ci --result-dir=build/Release/result/lint_results
             ./ci/checklicense.sh
