@@ -32,7 +32,13 @@ or use the CI hooks
    created by cmake in the build directory. Run therefore:
 
    ```
-   ln -s build/compile_commands.json
+   ln -s build/Debug/cmake/compile_commands.json
+   ```
+
+   or
+
+   ```
+   ln -s build/Release/cmake/compile_commands.json
    ```
 
 ## Folders
