@@ -106,13 +106,14 @@ def collect_sources_used(build_dir, json_file=None):
     with open(json_file, 'r', encoding="utf-8") as json_fh:
         json_dict_list = json.loads(json_fh.read())
 
-    inc_re = re.compile('(?:-I[^ ]+)|(?:-isystem [^ ]+)')
+    inc_re = re.compile('(?:-I[^ ]+)|(?:-isystem [^ ]+)|(?:-D[^ ]+)')
 
     for json_dict in json_dict_list:
         source = json_dict["file"]
         iparam = [x.group(0) for x in inc_re.finditer(json_dict["command"])]
         iparam = ' '.join(iparam).split(" ")
-        command = ['cpp', '-MM', source, *iparam]
+        cc = json_dict["command"].split(" ")[0]
+        command = [cc, '-MM', source, *iparam]
         output = sp.run(command, stdout=sp.PIPE, check=True)
         results = output.stdout.decode("utf-8").split()
         results = [
@@ -297,15 +298,15 @@ def check_unused(cfg, source_set):
             result = os.EX_DATAERR
             state = "FAILED"
         if len(source_set_known_unused) > 0:
-            print("Known and expected unused sources:")
+            log_line(log_fh, f"Known and expected unused sources:")
             for source in sorted(source_set_known_unused):
-                print(f"        {source}")
-            print("")
+                log_line(log_fh, f"        {source}")
+            log_line(log_fh, f"")
         if len(should_be_unused) > 0:
-            print("Specified as not used sources that are in use:")
+            log_line(log_fh, f"Specified as not used sources that are in use:")
             for source in sorted(should_be_unused):
-                print(f"        {source}")
-            print("")
+                log_line(log_fh, f"        {source}")
+            log_line(log_fh, f"")
             result = os.EX_DATAERR
             state = "FAILED"
 
@@ -670,6 +671,7 @@ def execute_steps(cfg, source_set):
     results = []
     function = dict(x for x in globals().items() if callable(x[1]))
 
+    print(f"Steps: {cfg['steps']}  <<<")
     for step in cfg["steps"]:
         if step not in function:
             raise Exception(f"No function exists for step '{step}'!")
