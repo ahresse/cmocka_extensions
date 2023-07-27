@@ -4,3 +4,4 @@
 .settings
 .asciidoctorconfig.adoc
 build
+compile_commands.json

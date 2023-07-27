@@ -32,8 +32,50 @@ or use the CI hooks
    created by cmake in the build directory. Run therefore:
 
    ```
-   ln -s build/compile_commands.json
+   ln -s build/Debug/cmake/compile_commands.json
    ```
+
+   or
+
+   ```
+   ln -s build/Release/cmake/compile_commands.json
+   ```
+## runing the examples
+
+the examples also get build with
+
+```bash
+./ci/build.sh [Release]
+```
+
+and can be run with
+
+```bash
+./ci/examples-run.sh
+```
+
+or found in
+
+```
+build/
+└── <Debug|Release>/
+   ├── ...
+   └── examples/
+      ├── ...
+      └── test/
+         ├── ...
+         ├── extref/
+         │  ├── ...
+         │  ├── wrap/
+         │  │  ├── ...
+         │  │  └── wrap_extref_example
+         │  └── weak/
+         │     ├── ...
+         │     └── weak_extref_example
+         └── selfref/
+            ├── ...
+            └── weak_selfref_example
+```
 
 ## Folders
 

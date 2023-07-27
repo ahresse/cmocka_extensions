@@ -14,6 +14,7 @@ project_add_documentation_target(
 )
 
 add_subdirectory(src)
+add_subdirectory(examples)
 
 if(PACKAGING)
   include(cmake/Packing.cmake)
