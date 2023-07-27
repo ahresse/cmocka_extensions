@@ -671,7 +671,6 @@ def execute_steps(cfg, source_set):
     results = []
     function = dict(x for x in globals().items() if callable(x[1]))
 
-    print(f"Steps: {cfg['steps']}  <<<")
     for step in cfg["steps"]:
         if step not in function:
             raise Exception(f"No function exists for step '{step}'!")
