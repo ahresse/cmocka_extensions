@@ -106,14 +106,14 @@ def collect_sources_used(build_dir, json_file=None):
     with open(json_file, 'r', encoding="utf-8") as json_fh:
         json_dict_list = json.loads(json_fh.read())
 
-    inc_re = re.compile('(?:-I[^ ]+)|(?:-isystem [^ ]+)|(?:-D[^ ]+)')
+    inc_def_re = re.compile('(?:-I[^ ]+)|(?:-isystem [^ ]+)|(?:-D[^ ]+)')
 
     for json_dict in json_dict_list:
         source = json_dict["file"]
-        iparam = [x.group(0) for x in inc_re.finditer(json_dict["command"])]
-        iparam = ' '.join(iparam).split(" ")
+        idparam = [x.group(0) for x in inc_def_re.finditer(json_dict["command"])]
+        idparam = ' '.join(idparam).split(" ")
         cc = json_dict["command"].split(" ")[0]
-        command = [cc, '-MM', source, *iparam]
+        command = [cc, '-MM', source, *idparam]
         output = sp.run(command, stdout=sp.PIPE, check=True)
         results = output.stdout.decode("utf-8").split()
         results = [
