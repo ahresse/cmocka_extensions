@@ -25,8 +25,8 @@ typedef enum {
 #define MOCK_FUNC_AFTER_CALL_WITH(__mockf, __mocka, __mockfp, __mockfd) \
     {                                                                   \
         __mock##_##__mockf.afterCall = __mocka;                         \
-        __mock##_##__mockf.funcPtr = (cmockaMockFunc_t *)__mockfp;      \
-        __mock##_##__mockf.funcData = (void *)__mockfd;                 \
+        __mock##_##__mockf.funcPtr = (cmockaMockFunc_t *)(__mockfp);    \
+        __mock##_##__mockf.funcData = (void *)(__mockfd);               \
     }
 
 #define MOCK_FUNC_AFTER_CALL(__mockf, __mocka) MOCK_FUNC_AFTER_CALL_WITH(__mockf, __mocka, NULL, NULL)
