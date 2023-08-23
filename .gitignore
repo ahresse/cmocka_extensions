@@ -3,6 +3,7 @@
 .cprofile
 .settings
 .asciidoctorconfig.adoc
+compile_commands.json
 
 # Temporary folders for building and/or testing
 __pycache__
