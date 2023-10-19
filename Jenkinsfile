@@ -27,7 +27,7 @@ properties([gitLabConnection('GitLab')])
 
 pipeline {
   options {
-    gitlabBuilds(builds: ["cmocka-extensions", "build debug", "build release", "lint sources", "documentation"])
+    gitlabBuilds(builds: ["cmocka_extensions", "build debug", "build release", "lint sources", "documentation"])
     buildDiscarder(logRotator(numToKeepStr: env.BRANCH_NAME == "master"? "1000": env.BRANCH_NAME == "integration"?"1000":"3"))
   }
 
@@ -49,7 +49,7 @@ pipeline {
         sh 'env'
         sh 'gcc --version'
         sh 'cmake --version'
-        updateGitlabCommitStatus name: 'cmocka-extensions', state: 'running'
+        updateGitlabCommitStatus name: 'cmocka_extensions', state: 'running'
       }
     }
 
@@ -136,10 +136,10 @@ pipeline {
       }
     }
     success {
-        updateGitlabCommitStatus name: 'cmocka-extensions', state: 'success'
+        updateGitlabCommitStatus name: 'cmocka_extensions', state: 'success'
     }
     failure {
-        updateGitlabCommitStatus name: 'cmocka-extensions', state: 'failed'
+        updateGitlabCommitStatus name: 'cmocka_extensions', state: 'failed'
     }
     always {
       cleanWs(cleanWhenNotBuilt: false,
