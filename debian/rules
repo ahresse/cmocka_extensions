@@ -1,0 +1,7 @@
+#!/usr/bin/make -f
+
+# LTO needs to be disabled for the tests to work
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
+
+%:
+	dh $@ --buildsystem=cmake --builddirectory=debian/build

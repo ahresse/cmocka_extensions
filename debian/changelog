@@ -1,0 +1,23 @@
+cmocka-extensions (0.50.0-4) unstable; urgency=medium
+
+  * Update gbp.conf with the new branch names.
+
+ -- Isaac True <isaac.true@emlix.com>  Tue, 07 May 2024 15:42:18 +0200
+
+cmocka-extensions (0.50.0-3) unstable; urgency=medium
+
+  * Add libcmocka-dev to cmocka-extensions-dev dependencies.
+
+ -- Isaac True <isaac.true@emlix.com>  Tue, 07 May 2024 14:40:09 +0200
+
+cmocka-extensions (0.50.0-2) unstable; urgency=medium
+
+  * Add gbp.conf
+
+ -- Isaac True <isaac.true@emlix.com>  Tue, 07 May 2024 12:04:01 +0200
+
+cmocka-extensions (0.50.0-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Isaac True <isaac.true@emlix.com>  Tue, 07 May 2024 11:25:20 +0200
