@@ -9,6 +9,7 @@ Build-Depends:
  git,
  pandoc,
  pandoc-plantuml-filter,
+ graphviz,
 Rules-Requires-Root: no
 Standards-Version: 4.6.0.1
 Homepage: https://github.com/Elektrobit/cmocka_extensions

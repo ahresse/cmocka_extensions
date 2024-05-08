@@ -3,7 +3,10 @@ cmocka-extensions (0.50.0-5) unstable; urgency=medium
   * Build docs before packaging.
   * Do not compress markdown files.
   * Remove unnecessary shlibs dependencies.
-  * Add pandoc and pandoc-plantuml-filter build dependencies.
+  * Add the following build dependencies:
+     - pandoc
+     - pandoc-plantuml-filter
+     - graphviz
 
  -- Isaac True <isaac.true@emlix.com>  Wed, 08 May 2024 12:11:33 +0200
 
