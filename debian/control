@@ -17,7 +17,6 @@ Package: cmocka-extensions-dev
 Architecture: any
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
  libcmocka-dev,
 Description: Collection of mocking related code extensions for cmocka
  Mocking related code extensions for cmocka used by elos and other projects.
