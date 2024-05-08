@@ -5,4 +5,4 @@
 /cmocka-extensions-doc/
 /.debhelper/
 /tmp/
-
+/*.debhelper.log
