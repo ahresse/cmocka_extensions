@@ -5,3 +5,6 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
 
 %:
 	dh $@ --buildsystem=cmake --builddirectory=debian/build
+
+override_dh_auto_build:
+	dh_auto_build -- all cmocka_extensions_doc
