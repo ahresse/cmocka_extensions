@@ -1,3 +1,10 @@
+cmocka-extensions (0.50.0-7) unstable; urgency=medium
+
+  * Add cmocka-extensions-doc.lintian-overrides to override a
+    zero-byte-file-in-doc-directory warning.
+
+ -- Isaac True <isaac.true@emlix.com>  Mon, 13 May 2024 16:27:10 +0200
+
 cmocka-extensions (0.50.0-6) unstable; urgency=medium
 
   * Clean up generated documentation before building.
