@@ -20,5 +20,3 @@ override_dh_compress:
 
 override_dh_clean:
 	dh_clean
-
-	rm -f documentation/images/*.png
