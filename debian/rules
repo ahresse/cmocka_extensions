@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
 # LTO needs to be disabled for the tests to work
+# related issue: https://github.com/Elektrobit/cmocka_extensions/issues/1
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
 
 %:
