@@ -24,6 +24,12 @@ Depends:
  libcmocka-dev,
 Description: Collection of mocking related code extensions for cmocka
  Mocking related code extensions for cmocka used by elos and other projects.
+ .
+ This package extends basic cmocka features and intoduces:
+  - weak mocking
+  - wrap mocking
+  - and some definitions to make creating and running the unit tests a bit
+    easier that the basic cmocka
 
 Package: cmocka-extensions-doc
 Section: doc
@@ -33,4 +39,10 @@ Depends:
 Description: Documentation for mocking related code extensions for cmocka
  Mocking related code extensions for cmocka used by elos and other projects.
  .
- Documentation package.
+ This package extends basic cmocka features and intoduces:
+  - weak mocking
+  - wrap mocking
+  - and some definitions to make creating and running the unit tests a bit
+    easier that the basic cmocka
+ .
+ This is the associated documentation package.
