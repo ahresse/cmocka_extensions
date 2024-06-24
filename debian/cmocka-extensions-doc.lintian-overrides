@@ -1,1 +1,2 @@
+# it is not problematic to have 0B style.css file in this context
 cmocka-extensions-doc: zero-byte-file-in-doc-directory [usr/share/doc/cmocka-extensions/style.css]
