@@ -1,3 +1,11 @@
+cmocka-extensions (0.50.0-7ubuntu2~ppa0) oracular; urgency=medium
+
+  * Add lintian override justification.
+  * Reference upstream issue for git dependency.
+  * Build documentation package only for indep.
+
+ -- Alexandre Esse <alexandre.esse@canonical.com>  Mon, 24 Jun 2024 16:29:50 +0200
+
 cmocka-extensions (0.50.0-7ubuntu1) oracular; urgency=medium
 
   * Initial release (LP: #2069860).
