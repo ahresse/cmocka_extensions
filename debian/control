@@ -6,6 +6,7 @@ Build-Depends:
  debhelper-compat (= 13),
  cmake,
  libcmocka-dev,
+# related issue: https://github.com/Elektrobit/cmocka_extensions/issues/5
  git,
 Build-Depends-Indep:
  pandoc,
