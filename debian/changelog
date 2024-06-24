@@ -6,7 +6,7 @@ cmocka-extensions (0.50.0-7ubuntu1) oracular; urgency=medium
   * Set cmocka-extensions-doc section to doc.
     To fix lintian wrong-section-according-to-package-name info message.
   * Set cmocka-extensions section to devel.
-    To be consistant with cmocka package section.
+    To be consistent with cmocka package section.
   * Use debian/clean path list to be deleted.
   * Set documentation build dependencies as Build-Depends-Indep.
   * Develop the packages descriptions to advertise for packages features.
