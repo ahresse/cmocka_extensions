@@ -18,6 +18,7 @@ RUN apt-get update \
     curl \
     gdb \
     git \
+    git-buildpackage \
     libcmocka-dev \
     libcsv-dev \
     libiberty-dev \
